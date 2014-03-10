@@ -8,6 +8,7 @@ module Finenso
         normal: "#{Finenso.config.assets_dir}/fonts/PT_Sans-Web-Regular.ttf",
         bold: "#{Finenso.config.assets_dir}/fonts/PT_Sans-Web-Bold.ttf"
       })
+      document.move_up 20
       prepare_letterhead(document)
       document.move_down 200
       prepare_content(document, body)
@@ -15,10 +16,12 @@ module Finenso
     end
 
     def prepare_letterhead(document)
-      document.image "#{Finenso.config.assets_dir}/images/nilenso-bg.png", width: 220, at: [410, document.cursor + 110]
-      document.bounding_box([0, document.cursor - 20], width: 130) do
+      document.image "#{Finenso.config.assets_dir}/images/nilenso-bg.png", width: 220, at: [410, document.cursor + 100]
+      document.image "#{Finenso.config.assets_dir}/images/nilenso-logo-name-horiz.png", width: 140
+      document.move_down 10
+      document.bounding_box([0, document.cursor], width: 155) do
         document.font_size 10
-        document.indent 0, 10 do
+        document.indent 0, 20 do
           document.font("PT Sans") do
             document.text "Nilenso Software LLP", align: :right, style: :bold
             document.text "#147, 10th Cross", align: :right
@@ -36,7 +39,7 @@ module Finenso
     end
 
     def prepare_content(document, body = "")
-      document.bounding_box([100, 500], width: 420) do
+      document.bounding_box([20, 500], width: 500) do
         today = Date.current
         document.text today.strftime("%B #{today.day.ordinalize} %Y"), align: :right
         document.text body
