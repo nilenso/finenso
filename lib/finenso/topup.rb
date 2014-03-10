@@ -2,6 +2,7 @@ module Finenso
   class Forex
     def topup_request
       topup_request_file = File.join(Finenso.config.data_dir, "topup_request.csv")
+      return unless verify(topup_request_file)
       CSV.foreach(topup_request_file, :col_sep => ",", headers: true) do |row|
         eefc_account_number = row[0]
         card_number = row[1]
@@ -24,6 +25,15 @@ module Finenso
         Thanking you
         EOS
         Finenso::Letter.new.generate_pdf(body)
+      end
+    end
+
+    def verify(file)
+      if File.exists? file
+        true
+      else
+        puts "Missing required csv file. Please create it from the templates present in the data folder."
+        false
       end
     end
   end
