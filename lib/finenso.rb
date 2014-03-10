@@ -1,5 +1,6 @@
 require 'active_support/all'
 require 'numbers_and_words'
+require 'csv'
 
 module Finenso
 end
