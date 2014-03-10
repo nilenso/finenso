@@ -1,3 +1,6 @@
+require 'active_support/all'
+require 'numbers_and_words'
+
 module Finenso
 end
 

@@ -5,7 +5,7 @@ module Finenso
     ASSETS_DIR = File.expand_path("../../../assets", __FILE__)
     OUTPUT_DIR = File.expand_path("../../../target", __FILE__)
 
-    def generate_pdf
+    def generate_pdf(body)
       Prawn::Document.generate("#{OUTPUT_DIR}/Forex cards issue request.pdf") do
         image "#{ASSETS_DIR}/nilenso-bg.png", width: 220, at: [410, cursor + 110]
         bounding_box([0, cursor - 20], width: 110) do
@@ -19,6 +19,10 @@ module Finenso
           end
           stroke_color "F2136A"
           stroke_vertical_line bounds.bottom, bounds.top, at: bounds.right
+        end
+        move_down 200
+        bounding_box([100, 500], width: 450) do
+          text body
         end
       end
     end
