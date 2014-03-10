@@ -21,7 +21,9 @@ module Finenso
           stroke_vertical_line bounds.bottom, bounds.top, at: bounds.right
         end
         move_down 200
-        bounding_box([100, 500], width: 450) do
+        bounding_box([100, 500], width: 420) do
+          today = Date.current
+          text today.strftime("%B #{today.day.ordinalize} %Y"), align: :right
           text body
         end
       end
