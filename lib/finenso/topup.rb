@@ -1,8 +1,7 @@
 module Finenso
   class Forex
     def topup_request
-      data_dir = File.expand_path("../../../data", __FILE__)
-      topup_request_file = File.join(data_dir, "topup_request.csv")
+      topup_request_file = File.join(Finenso.config.data_dir, "topup_request.csv")
       CSV.foreach(topup_request_file, :col_sep => ",", headers: true) do |row|
         eefc_account_number = row[0]
         card_number = row[1]
