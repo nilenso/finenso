@@ -1,2 +1,2 @@
-target/
+target/*.pdf
 data/*.csv
