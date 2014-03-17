@@ -23,3 +23,6 @@ module Finenso
 end
 
 Dir[File.dirname(__FILE__) + "/finenso/**/*.rb"].each {|f| require f}
+
+#Disabling locale check
+I18n.config.enforce_available_locales = false
