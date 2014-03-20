@@ -14,6 +14,14 @@ class Finenso::Company
     accounts_service.query("Select * from Account where Name='EEFC'").entries.first
   end
 
+  def eefc_account_balance
+    eefc_account.current_balance_with_sub_accounts
+  end
+
+  def sufficient_eefc_account_balance?(amount)
+    BigDecimal(amount) < eefc_account_balance
+  end
+
   def self.find_by_identifier(identifier)
     companies[identifier]
   end
