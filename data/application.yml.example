@@ -2,4 +2,3 @@ QUICKBOOKS_CONSUMER_KEY: quickbooks-consumer-key
 QUICKBOOKS_CONSUMER_SECRET: quickbooks-consumer-secret
 QUICKBOOKS_ACCESS_TOKEN: quickbooks-access-token
 QUICKBOOKS_ACCESS_SECRET: quickbooks-access-secret
-QUICKBOOKS_COMPANY_ID: quickbooks-company-id

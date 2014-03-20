@@ -13,9 +13,9 @@ class Finenso::QuickbooksClient
     @access_token ||= OAuth::AccessToken.new(consumer, ENV["QUICKBOOKS_ACCESS_TOKEN"], ENV["QUICKBOOKS_ACCESS_SECRET"])
   end
 
-  def account_service
+  def accounts_service_for(quickbooks_company_id)
     service = Quickbooks::Service::Account.new
-    service.company_id = ENV["QUICKBOOKS_COMPANY_ID"]
+    service.company_id = quickbooks_company_id
     service.access_token = access_token
     service
   end
