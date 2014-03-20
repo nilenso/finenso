@@ -46,6 +46,7 @@ module Finenso
         true
       else
         puts "Insufficient balance in EEFC account. Please ensure sufficient balance before retrying."
+        false
       end
     end
   end
